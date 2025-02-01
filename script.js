@@ -1,12 +1,14 @@
-// Dark Mode Toggle Functionality
-const darkModeToggle = document.getElementById("darkModeToggle");
-const body = document.body;
+document.getElementById("contactForm").addEventListener("submit", function(event) {
+    event.preventDefault();
 
-darkModeToggle.addEventListener("click", function () {
-    body.classList.toggle("dark-mode");
-    if (body.classList.contains("dark-mode")) {
-        darkModeToggle.textContent = "🌞";  // Switch to light mode
-    } else {
-        darkModeToggle.textContent = "🌙";  // Switch to dark mode
+    let name = document.getElementById("name").value.trim();
+    let email = document.getElementById("email").value.trim();
+    let message = document.getElementById("message").value.trim();
+
+    if (name === "" || email === "" || message === "") {
+        alert("Bitte fülle alle Felder aus.");
+        return;
     }
+
+    alert("Danke für deine Nachricht, " + name + "!");
 });
