@@ -1,15 +1,13 @@
 document.addEventListener("DOMContentLoaded", function () {
-    console.log("script.js loaded and DOM fully loaded");
+    console.log("script.js is loading");
 
     const contactForm = document.getElementById("contactForm");
 
-    // Check if the form is loaded
+    // Ensure the form exists
     if (!contactForm) {
-        console.error("Error: Form not found in the DOM!");
+        console.error("Form not found on this page.");
         return;
     }
-
-    console.log("Contact form found, adding submit event listener...");
 
     contactForm.addEventListener("submit", function (event) {
         event.preventDefault();
@@ -19,21 +17,15 @@ document.addEventListener("DOMContentLoaded", function () {
         const email = document.getElementById("email").value.trim();
         const message = document.getElementById("message").value.trim();
 
-        // Log values to see what is being submitted
-        console.log(`Name: ${name}, Email: ${email}, Message: ${message}`);
-
-        // Ensure all fields are filled
+        // Check if all fields are filled
         if (!name || !email || !message) {
-            console.error("Form validation failed: Missing name, email, or message.");
+            console.error("One or more fields are empty!");
             alert("Bitte fülle alle Felder aus.");
             return;
         }
 
-        // Everything is good, show success message
-        console.log("Form data is valid.");
-        alert(`Danke für deine Nachricht, ${name}!`);
-
-        // Optional: Reset the form after submission
+        console.log(`Form submitted by: ${name}, ${email}`);
+        alert("Danke für deine Nachricht, " + name + "!");
         contactForm.reset();
     });
 });
