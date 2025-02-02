@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", function () {
     console.log("script.js is loading");
 
     const contactForm = document.getElementById("contactForm");
-    
+
     // Ensure the form exists
     if (!contactForm) {
         console.error("Form not found on this page.");
@@ -26,6 +26,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
         console.log(`Form submitted by: ${name}, ${email}`);
         alert("Danke für deine Nachricht, " + name + "!");
+
+        // Optional: Reset the form after submission
         contactForm.reset();
     });
 });
