@@ -1,35 +1,31 @@
-// Wait for the DOM to fully load before executing the script
 document.addEventListener("DOMContentLoaded", function () {
-    // Get the form element by ID
+    console.log("script.js is loading");
+
     const contactForm = document.getElementById("contactForm");
-
-    // Check if the form exists to avoid errors if the element is missing
-    if (contactForm) {
-        // Add an event listener to handle form submission
-        contactForm.addEventListener("submit", function (event) {
-            event.preventDefault(); // Prevent the form from submitting in the usual way
-
-            // Get the values from the input fields
-            let name = document.getElementById("name").value.trim();
-            let email = document.getElementById("email").value.trim();
-            let message = document.getElementById("message").value.trim();
-
-            // Check if any of the fields are empty
-            if (!name || !email || !message) {
-                alert("Bitte fülle alle Felder aus.");
-                return; // Exit the function if any field is empty
-            }
-
-            // If all fields are filled, show a success message
-            alert("Danke für deine Nachricht, " + name + "!");
-            
-            // Optionally, you can reset the form after successful submission
-            contactForm.reset();
-        });
-    } else {
-        console.error("Kontaktformular nicht gefunden.");
+    
+    // Ensure the form exists
+    if (!contactForm) {
+        console.error("Form not found on this page.");
+        return;
     }
 
-    // For debugging purposes, log that the script loaded successfully
-    console.log("script.js successfully loaded!");
+    contactForm.addEventListener("submit", function (event) {
+        event.preventDefault();
+        console.log("Form submitted!");
+
+        const name = document.getElementById("name").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const message = document.getElementById("message").value.trim();
+
+        // Check if all fields are filled
+        if (!name || !email || !message) {
+            console.error("One or more fields are empty!");
+            alert("Bitte fülle alle Felder aus.");
+            return;
+        }
+
+        console.log(`Form submitted by: ${name}, ${email}`);
+        alert("Danke für deine Nachricht, " + name + "!");
+        contactForm.reset();
+    });
 });
