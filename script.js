@@ -1,27 +1,20 @@
 document.addEventListener("DOMContentLoaded", function () {
-    console.log("script.js loaded and DOM fully loaded");
+    const findRouteButton = document.getElementById("findRoute");
+    const startLocation = document.getElementById("startLocation");
+    const destination = document.getElementById("destination");
+    const routeResult = document.getElementById("routeResult");
 
-    const contactForm = document.getElementById("contactForm");
-
-    if (!contactForm) {
-        console.error("Error: Form not found in the DOM!");
-        return;
-    }
-
-    contactForm.addEventListener("submit", function (event) {
-        event.preventDefault();
-        console.log("Form submitted!");
-
-        const name = document.getElementById("name").value.trim();
-        const email = document.getElementById("email").value.trim();
-        const message = document.getElementById("message").value.trim();
-
-        if (!name || !email || !message) {
-            alert("Bitte fülle alle Felder aus.");
+    findRouteButton.addEventListener("click", function () {
+        if (!startLocation.value || !destination.value) {
+            routeResult.textContent = "Please enter both start and destination.";
             return;
         }
 
-        alert(`Danke für deine Nachricht, ${name}!`);
-        contactForm.reset();
+        routeResult.textContent = `Calculating the most eco-friendly route from ${startLocation.value} to ${destination.value}...`;
+        
+        // Simulate fetching route
+        setTimeout(() => {
+            routeResult.textContent = `Best eco-friendly route from ${startLocation.value} to ${destination.value} found! 🚴‍♂️🚶‍♂️`;
+        }, 2000);
     });
 });
