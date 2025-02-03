@@ -1,58 +1,29 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sunshine Remollo – Portfolio</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Eco-Friendly Route Planner</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
-        <h1>Sunshine Remollo</h1>
-        <p>Fachinformatikerin – Web & Softwareentwicklung</p>
+        <h1>Eco-Friendly Route Planner</h1>
     </header>
 
-    <nav>
-        <ul>
-            <li><a href="#about">Über mich</a></li>
-            <li><a href="#projects">Projekte</a></li>
-            <li><a href="#contact">Kontakt</a></li>
-        </ul>
-    </nav>
-
-    <section id="about">
-        <h2>Über mich</h2>
-        <p>Ich bin eine leidenschaftliche IT-Entwicklerin mit Fokus auf digitale Innovationen und nachhaltige Technologien.</p>
-    </section>
-
-    <section id="projects">
-        <h2>Projekte</h2>
-        <div class="project">
-            <h3>Energy Monitor Grid</h3>
-            <p>Diese Webanwendung visualisiert den Energieverbrauch in Deutschland und den Philippinen in Echtzeit. 
-               Sie bietet interaktive Diagramme, Sprachumschaltung und eine Download-Funktion für Datenanalysen.</p>
-            <a href="https://scheinremdy.github.io/energy-monitor-grid-/" target="_blank">Live-Demo</a>
-            <a href="https://github.com/scheinremdy/energy-monitor-grid-" target="_blank">GitHub Repository</a>
+    <main>
+        <div>
+            <label for="startLocation">Start Location:</label>
+            <input type="text" id="startLocation" placeholder="Enter start location">
         </div>
-    </section>
+        <div>
+            <label for="destination">Destination:</label>
+            <input type="text" id="destination" placeholder="Enter destination">
+        </div>
+        <button id="findRoute">Find Eco-Friendly Route</button>
+        <p id="routeResult"></p>
+    </main>
 
-    <section id="contact">
-        <h2>Kontakt</h2>
-        <form id="contactForm">
-            <label for="name">Name:</label>
-            <input type="text" id="name" required>
-            
-            <label for="email">E-Mail:</label>
-            <input type="email" id="email" required>
-            
-            <label for="message">Nachricht:</label>
-            <textarea id="message" required></textarea>
-            
-            <button type="submit">Senden</button>
-        </form>
-    </section>
-
-    <!-- Load script correctly -->
-    <script src="./script.js"></script>
+    <script src="scripts.js"></script> <!-- Make sure this file exists -->
 </body>
 </html>
