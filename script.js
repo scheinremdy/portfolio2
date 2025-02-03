@@ -1,11 +1,10 @@
 document.addEventListener("DOMContentLoaded", function () {
-    console.log("script.js is loading");
+    console.log("script.js loaded and DOM fully loaded");
 
     const contactForm = document.getElementById("contactForm");
 
-    // Ensure the form exists
     if (!contactForm) {
-        console.error("Form not found on this page.");
+        console.error("Error: Form not found in the DOM!");
         return;
     }
 
@@ -17,15 +16,12 @@ document.addEventListener("DOMContentLoaded", function () {
         const email = document.getElementById("email").value.trim();
         const message = document.getElementById("message").value.trim();
 
-        // Check if all fields are filled
         if (!name || !email || !message) {
-            console.error("One or more fields are empty!");
             alert("Bitte fülle alle Felder aus.");
             return;
         }
 
-        console.log(`Form submitted by: ${name}, ${email}`);
-        alert("Danke für deine Nachricht, " + name + "!");
+        alert(`Danke für deine Nachricht, ${name}!`);
         contactForm.reset();
     });
 });
